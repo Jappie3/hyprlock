@@ -993,7 +993,7 @@ void CHyprlock::spawnAsync(const std::string& args) {
             // run in grandchild
             close(socket[0]);
             close(socket[1]);
-            execl("/bin/sh", "/bin/sh", "-c", args.c_str(), nullptr);
+            execl("/usr/bin/env", "bash", "-c", args.c_str(), nullptr);
             // exit grandchild
             _exit(0);
         }
